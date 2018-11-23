@@ -31,32 +31,29 @@ const sWlc = {}
 
 
 const prefix = "H"
-client.on('message', message => {
-  if (!message.content.startsWith(prefix)) return;
-  var args = message.content.split(' ').slice(1);
-  var argresult = args.join(' ');
-  if (message.author.id !== '299880832745734147') return;
+const devs = ['299880832745734147' , '299880832745734147' , ''];
+client.on('message', message => {//for dev
+  var argresult = message.content.split(`).slice(1).join(' ');
+    if (!devs.includes(message.author.id)) return;
 
-if (message.content.startsWith(prefix + 'g')) {
+if (message.content.startsWith(adminprefix + 'playig')) {
   client.user.setGame(argresult);
-    message.channel.sendMessage(`**:white_check_mark:  : ${argresult}**`)
-} else 
+    message.channel.sendMessage(${argresult} تم تغيير بلاينق البوت إلى )
+} else
+  if (message.content.startsWith(adminprefix + 'name')) {
+client.user.setUsername(argresult).then
+    message.channel.sendMessage(${argresult} : تم تغيير أسم البوت إلى)
+return message.reply("**لا يمكنك تغيير الاسم يجب عليك الانتظآر لمدة ساعتين . **");
+} else
+  if (message.content.startsWith(adminprefix + 'avatar')) {
+client.user.setAvatar(argresult);
+  message.channel.sendMessage(${argresult} : تم تغير صورة البوت);
+      } else
+if (message.content.startsWith(adminprefix + 'twitch')) {
+  client.user.setGame(argresult, "https://www.twitch.tv/faresgameryt");
+    message.channel.sendMessage(تم تغيير تويتش البوت إلى  ${argresult}`)
 
-if (message.content.startsWith(prefix + 'w')) {
-client.user.setActivity(argresult, {type:'WATCHING'});
-    message.channel.sendMessage(`**:white_check_mark:  : ${argresult}**`)
-} else 
-if (message.content.startsWith(prefix + 'l')) {
-client.user.setActivity(argresult, {type:'LISTENING'});
-    message.channel.sendMessage(`**:white_check_mark:  : ${argresult}**`)
-} else 
-
-if (message.content.startsWith(prefix + 's')) {
-  client.user.setGame(argresult, "https://www.twitch.tv/Justin-Ly0001");
-    message.channel.sendMessage(`**:white_check_mark:  : ${argresult}**`)
 }
-
-});
 
 
 
